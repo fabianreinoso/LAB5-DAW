@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat con Socket.IO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="user-info">
+                <div class="avatar">
+                    <img src="./src/userimage.avif">
+                </div>
+                <div class="user-details">
+                    <div class="username">Pedro</div>
+                    <div class="status">En línea</div>
+                </div>
+            </div>
+            <div class="icons">
+                <i class="fas fa-video"></i>
+                <i class="fas fa-phone"></i>
+                <i class="fas fa-ellipsis-v"></i>
+            </div>
+        </div>
+
+
+        <div id="customAlert" class="custom-alert"> 
+            <div class="custom-alert-content">
+                <span id="customAlertMessage"></span>
+                <button onclick="closeCustomAlert()">OK</button>
+            </div>
+        </div>
+
+
+        <div class="chat-messages" id="chat-messages">
+            <!-- Mensajes se llenarán aquí -->
+        </div>
+
+        <div class="chat-inputs">
+            <div class="chat-input">
+                <input type="text" id="username2" placeholder="Tu nombre (Chat 2)" onkeyup="checkInputs()">
+                <input type="text" id="message2" placeholder="Escribe tu mensaje (Chat 2)" onkeyup="checkInputs()">
+                <input type="file" id="imageInput2" accept="image/*" onchange="previewImage(this, 'imagePreview2')">
+                <button onclick="sendMessage2()" id="sendButton2" disabled>Enviar (Chat 2)</button>
+            </div>
+        </div>
+    
+        <div class="image-preview" id="imagePreview"></div>
+        <div class="image-preview" id="imagePreview2"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
